@@ -25,6 +25,7 @@
 This example shows how to configure the FDCAN peripheral to send and receive
 Classic CAN frames in normal mode. 
 
+The examples computes the numbers of messages received on the bus, and echoes the ID of the sender.
 The sent frames are used to control LEDs by pressing Tamper Push Button.
 
 The CAN serial communication link is a bus to which a number of units may be
@@ -59,17 +60,17 @@ This program behaves as follows:
       to have correct HAL operation.
       
 @Note If the  application is using the DTCM/ITCM memories (@0x20000000/ 0x0000000: not cacheable and only accessible
-      by the Cortex M7 and the  MDMA), no need for cache maintenance when the Cortex M7 and the MDMA access these RAMs.
-      If the application needs to use DMA(or other masters) based access or requires more RAM, then  the user has to:
-              - Use a non TCM SRAM. (example : D1 AXI-SRAM @ 0x24000000)
-              - Add a cache maintenance mechanism to ensure the cache coherence between CPU and other masters(DMAs,DMA2D,LTDC,MDMA).
-              - The addresses and the size of cacheable buffers (shared between CPU and other masters)
-                must be	properly defined to be aligned to L1-CACHE line size (32 bytes). 
- 
+      by the Cortex M7 and the Â MDMA), no need for cache maintenance when the Cortex M7 and the MDMA access these RAMs.
+Â Â Â Â Â  If the application needs to use DMA(or other masters) based access or requires more RAM, then Â the user has to:
+Â Â Â Â Â Â Â Â Â Â Â  Â  - Use a non TCM SRAM. (example : D1 AXI-SRAM @ 0x24000000)
+Â Â Â Â Â Â Â Â Â Â Â  Â  - Add a cache maintenance mechanism to ensure the cache coherence between CPU and other masters(DMAs,DMA2D,LTDC,MDMA).
+Â Â Â Â Â Â Â        - The addresses and the size of cacheable buffers (shared between CPU and other masters)
+                must be	properlyÂ defined to be aligned to L1-CACHE line size (32 bytes). 
+Â 
 @Note It is recommended to enable the cache and maintain its coherence.
       Depending on the use case it is also possible to configure the cache attributes using the MPU.
-      Please refer to the AN4838 "Managing memory protection unit (MPU) in STM32 MCUs"
-      Please refer to the AN4839 "Level 1 cache on STM32F7 Series"
+Â Â Â Â Â Â Please refer to the AN4838 "Managing memory protection unit (MPU) in STM32 MCUs"
+Â Â Â Â Â Â Please refer to the AN4839 "Level 1 cache on STM32F7 Series"
 
 @par Keywords
 
